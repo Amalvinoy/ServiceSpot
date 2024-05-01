@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>ServiceSpot</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Corporate Html5 Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Rappo HTML Template v1.0">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <!-- Icon Font css -->
+  <link rel="stylesheet" href="/plugins/fontawesome/css/all.css">
+  <link rel="stylesheet" href="/plugins/fonts/Pe-icon-7-stroke.css">
+  <!-- Themify icon Css -->
+  <link rel="stylesheet" href="/plugins/themify/css/themify-icons.css">
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="/plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  
+  <!--Favicon-->
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+
+</head>
+<body id="top-header">
+<!-- LOADER TEMPLATE -->
+<div id="page-loader">
+  <div class="loader-icon fa fa-spin colored-border"></div>
+</div>
+<!-- /LOADER TEMPLATE -->
+
+
+<!-- NAVBAR
+    ================================================= -->
+<nav class="navbar navbar-expand-lg navbar-dark trans-navigation fixed-top navbar-togglable">
+  <div class="container">
+    <a class="navbar-brand" href="index-3.html">
+      <h3>ServiceSpot</h3>
+    </a>
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars"></span>
+    </button>
+
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse has-dropdown" id="navbarCollapse">
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+          <a href="home" class="nav-link js-scroll-trigger">
+            Home
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a href="/profile/about" class="nav-link js-scroll-trigger">
+            About
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#!" id="navbarWelcome" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Service
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarWelcome">
+            <li><a class="dropdown-item" href="/users/service">services</a></li>
+            <li><a class="dropdown-item" href="users/userservice">Service Providers</a></li>
+          </ul>
+    </li>
+        <li class="nav-item ">
+          <a href="/profile/contact" class="nav-link">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div> <!-- / .navbar-collapse -->
+  </div> <!-- / .container -->
+</nav>
+
+   <!-- HERO
+    ================================================== -->
+    <section class="page-banner-area page-service">
+        <div class="overlay"></div>
+        <!-- Content -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-12 col-12 text-center">
+                    <div class="page-banner-content">
+                        <h1 class="display-4 font-weight-bold">Service Details</h1>
+                    </div>
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+
+
+    <div class="main">
+      <h1 class="text-center mb-5">Service Providers</h1>
+      <div class="row">
+        <% providers.forEach(provider => { %>
+          <div class="col-lg-6 col-md-8 col-sm-10 mx-auto mb-4">
+            <div class="service-provider card shadow-lg">
+              <div class="card-body">
+                <h2 class="card-title"><%= provider.service %></h2>
+                <p class="card-text"><strong>Name:</strong> <%= provider.name %></p>
+                <p class="card-text"><strong>Phone:</strong> <%= provider.phone %></p>
+                <p class="card-text"><strong>Location:</strong> <%= provider.location %></p>
+                <!-- Review Section -->
+                <div class="review-section">
+                  <h3 class="mb-3">Reviews:</h3>
+                  <% provider.reviews.forEach(review => { %>
+                    <div class="review card mb-3">
+                      <div class="card-body">
+                        <p class="card-text"><strong><%= review.user %>:</strong></p>
+                        <p class="card-text"><%= review.comment %></p>
+                      </div>
+                    </div>
+                  <% }); %>
+                  <!-- Form to submit new review -->
+                  <form action="/users/submit-review" method="post" class="mt-4">
+                    <input type="hidden" name="providerId" value="<%= provider._id %>">
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="user" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" name="comment" placeholder="Your Review" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+    
+
+
+ <footer class="section " id="footer">
+   <div class="overlay footer-overlay"></div>
+   <!--Content -->
+   <div class="container">
+     <div class="row justify-content-start">
+       <div class="col-lg-4 col-sm-12">
+         <div class="footer-widget">
+           <!-- Brand -->
+           <a href="home" class="footer-brand text-white">
+             ServiceSpot
+           </a>
+         </div>
+       </div>
+
+       <div class="col-lg-3 ml-lg-auto col-sm-12">
+         <div class="footer-widget">
+           <h3>Account</h3>
+           <!-- Links -->
+           <ul class="footer-links ">
+             <li>
+               <a href="#!">
+                 Terms and conditions
+               </a>
+             </li>
+             <li>
+               <a href="#!">
+                 Help and support
+               </a>
+             </li>
+           </ul>
+         </div>
+       </div>
+
+
+       <div class="col-lg-2 col-sm-6">
+         <div class="footer-widget">
+           <h3>About</h3>
+           <!-- Links -->
+           <ul class="footer-links">
+             <li>
+               <a href="service">
+                 Services
+               </a>
+             </li>
+             <li>
+               <a href="contact">
+                 Contact
+               </a>
+             </li>
+           </ul>
+         </div>
+       </div>
+
+       <div class="col-lg-2 col-sm-6">
+         <div class="footer-widget">
+           <h3>Socials</h3>
+           <!-- Links -->
+           <ul class="list-unstyled footer-links">
+             <li><a href="https://www.facebook.com/themefisher"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+             <li>
+               <a href="https://www.twitter.com/themefisher"><i class="fab fa-twitter"></i>Twitter
+               </a></li>
+           </ul>
+         </div>
+       </div>
+     </div> <!-- / .row -->
+
+   </div> <!-- / .container -->
+ </footer>
+
+
+ <!--  Page Scroll to Top  -->
+
+ <a id="scroll-to-top" class="scroll-to-top js-scroll-trigger" href="#top-header">
+   <i class="fa fa-angle-up"></i>
+ </a>
+
+  <!-- 
+  Essential Scripts
+  =====================================-->
+  <!-- jQuery -->
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="/plugins/bootstrap/bootstrap.min.js"></script>
+  <!-- Slick Slider -->
+  <script src="/plugins/slick-carousel/slick/slick.min.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+  <script src="/plugins/google-map/gmap.js"></script>
+
+  <script src="/javascripts/script.js"></script>
+
+</body>
+</html>
+   

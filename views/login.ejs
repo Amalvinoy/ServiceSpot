@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href='/stylesheets/login.css'>
+
+</head>
+<body>
+    
+<div class="container" id="container">
+	<div class="form-box">
+	<div class="form-container sign-up-container ">
+		<form action="/users/registerUserWithOTP" method="post">
+			<div class=wel2>
+				<h1 class="hd1">Register Now</h1>
+			</div>
+			<a class="bt3" href="/auth/google">Log in with Google</a>
+			<div class="sgn2"><p>Or sign in with</p></div>
+			<input type="text" class="form-control1" name="username" id="username" placeholder="Name" autocomplete="off">
+			<input type="email" class="form-control1" name="email" id="email" placeholder="Email" autocomplete="off">
+			<input type="password" class="form-control1" name="password" id="password1" value="" placeholder="Password">
+			<input type="password" class="form-control1" name="password2" id="password2" value="" placeholder="confirm Password">
+			<input class="bt2" type="submit" value= "Get-Otp">
+			<p class="para1">Have an Account? <a id=login1>Log In</a></p>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="/users/login" method="post">
+		<div class=wel1>
+			<h2 class="text-center">Welcome back you've been missed!</h2>
+		  </div>
+		  <a class="bt1" href="/auth/google">Log in with Google</a>
+		<div class="sgn1"><p>Or sign in with</p></div>
+		    
+			<input type="email" class="form-control" name="email" id="email1" placeholder="Email" autocomplete="off">
+			<input type="password" class="form-control" name="password" id="password" value="" placeholder="Password">
+
+			<a href="/users/forgot">Forgot your password?</a>
+			<input class="bt2" type="submit" value="Log in now">
+			<p >New Here? <a id="registration">Register Now</a></p>
+		</form>
+	</div>
+  </div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<div>
+                    <img src="/images/bg.jpg" alt="">
+                 </div>
+			</div>
+
+			<div class="overlay-panel overlay-right">
+                <div>
+				<img src="/images/bg.jpg" alt="">
+             </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="/javascripts/login.js"></script>
+</body>
+</html>
